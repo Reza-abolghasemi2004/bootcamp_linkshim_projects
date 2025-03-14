@@ -1,34 +1,106 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar</title>
+    <title>Web Development Articles</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+<!-- Navigation Bar -->
 <nav class="navbar">
-    <div class="logo">MyWebsite</div>
+    <div class="logo">WebDev</div>
     <ul class="nav-links">
         <li><a href="#">Home</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Tutorials</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
-        <li class="dropdown">
-            <a href="#">Projects</a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Project 1</a></li>
-                <li><a href="#">Project 2</a></li>
-                <li><a href="#">Project 3</a></li>
-            </ul>
-        </li>
     </ul>
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
     <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 </nav>
 
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>LinkShim Web Development</h1>
+        <p>Explore the latest articles and tutorials on web development.</p>
+        <a href="https://www.w3schools.com/" class="cta-button">Get Started</a>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="content">
+    <h2>Featured Articles</h2>
+    <div class="card-container">
+        <div class="card">
+            <img src="exzample.jpg" alt="Article Image">
+            <h3>Introduction to HTML</h3>
+            <p>Learn the basics of HTML and how to structure web pages.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="card">
+            <img src="exzample.jpg" alt="Article Image">
+            <h3>CSS Styling Techniques</h3>
+            <p>Discover advanced CSS techniques for modern web design.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="card">
+            <img src="exzample.jpg" alt="Article Image">
+            <h3>JavaScript Fundamentals</h3>
+            <p>Master the fundamentals of JavaScript programming.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="card">
+            <img src="exzample.jpg" alt="Article Image">
+            <h3>Responsive Web Design</h3>
+            <p>Learn how to create responsive websites that work on all devices.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We provide high-quality tutorials and articles on web development.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="https://stackoverflow.com/">Home</a></li>
+                <li><a href="https://stackoverflow.com/">Articles</a></li>
+                <li><a href="https://stackoverflow.com/">Tutorials</a></li>
+                <li><a href="https://stackoverflow.com/">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.w3schools.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.w3schools.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.w3schools.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.w3schools.com/"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 linkshim bootcamp .</p>
+    </div>
+</footer>
+
+<!-- JavaScript -->
 <script src="script.js"></script>
 </body>
 </html>
