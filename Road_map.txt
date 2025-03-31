@@ -1,0 +1,17 @@
+/Blog_Project
+    /includes
+        - header.php
+        - footer.php
+    /data
+        - users.json
+        - posts.json
+    /css
+        - style.css
+    index.php
+    login.php
+    register.php
+    dashboard.php
+    create_post.php
+    edit_post.php
+    view_post.php
+    logout.php
