@@ -1,41 +1,47 @@
-<?php
-session_start();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $users = json_decode(file_get_contents('data/users.json'), true);
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // رمزنگاری پسورد
-    $email = $_POST['email'];
-
-    $users[] = [
-        'username' => $username,
-        'password' => $password,
-        'email' => $email
-    ];
-
-    file_put_contents('data/users.json', json_encode($users));
-    header('Location: login.php');
-    exit();
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وبلاگ من</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Register</h1>
-<form method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <button type="submit">Register</button>
-</form>
+    <header>
+        <h1>وبلاگ من</h1>
+        <nav>
+            <ul>
+                <li><a href="#">خروج</a></li>
+                <li><a href="#">ورود</a></li>
+                <li><a href="register.html" target="_blank">ثبت نام</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main class="content">
+            <article>
+                <h2>#post1</h2>
+                <p>پست اول وبلاگ</p>
+                <a href="#" class="read-more">دیدن صفحه</a>
+            </article>
+
+            <article>
+                <h2>#post2</h2>
+                <p>پست دوم وبلاگ</p>
+                <a href="#" class="read-more">دیدن صفحه</a>
+            </article>
+
+            <article>
+                <h2>#post...</h2>
+                <p>پست ... وبلاگ</p>
+                <a href="#" class="read-more">دیدن صفحه</a>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 وبلاگ من. تمامی حقوق محفوظ است.</p>
+    </footer>
 </body>
 </html>
