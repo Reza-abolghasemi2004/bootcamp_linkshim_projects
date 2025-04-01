@@ -1,47 +1,32 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وبلاگ من</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>وبلاگ من</h1>
-        <nav>
-            <ul>
-                <li><a href="#">خروج</a></li>
-                <li><a href="#">ورود</a></li>
-                <li><a href="register.html" target="_blank">ثبت نام</a></li> 
-            </ul>
-        </nav>
-    </header>
+<?php
+$jsonFile = 'users.json';
 
-    <div class="container">
-        <main class="content">
-            <article>
-                <h2>#post1</h2>
-                <p>پست اول وبلاگ</p>
-                <a href="#" class="read-more">دیدن صفحه</a>
-            </article>
+if (file_exists($jsonFile)) {
+    $data = json_decode(file_get_contents($jsonFile), true);
+} else {
+    $data = [];
+}
 
-            <article>
-                <h2>#post2</h2>
-                <p>پست دوم وبلاگ</p>
-                <a href="#" class="read-more">دیدن صفحه</a>
-            </article>
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-            <article>
-                <h2>#post...</h2>
-                <p>پست ... وبلاگ</p>
-                <a href="#" class="read-more">دیدن صفحه</a>
-            </article>
-        </main>
-    </div>
+foreach ($data as $user) {
+    if ($user['username'] === $username) {
+        die('نام کاربری تکراری است. لطفاً نام کاربری دیگری انتخاب کنید.');
+    }
+}
 
-    <footer>
-        <p>&copy; 2025 وبلاگ من. تمامی حقوق محفوظ است.</p>
-    </footer>
-</body>
-</html>
+$id = count($data) + 1;     //اضافه کردن دستی
+
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+$data[] = [
+    'id' => $id,
+    'username' => $username,
+    'password' => $hashedPassword
+];
+
+file_put_contents($jsonFile, json_encode($data, JSON_PRETTY_PRINT));
+
+echo 'ثبت نام با موفقیت انجام شد!';
+?>
