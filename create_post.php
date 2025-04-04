@@ -6,10 +6,10 @@ if (!isset($_SESSION['user'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $posts = json_decode(file_get_contents('data/posts.json'), true);
+    $posts = json_decode(file_get_contents('data/posts.json'), true) ?? [];
     $title = $_POST['title'];
     $content = $_POST['content'];
-    $id = uniqid(); // ایجاد شناسه یکتا برای پست
+    $id = uniqid();
 
     $posts[] = [
         'id' => $id,
@@ -19,27 +19,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'created_at' => date('Y-m-d H:i:s')
     ];
 
-    file_put_contents('data/posts.json', json_encode($posts));
+    file_put_contents('data/posts.json', json_encode($posts, JSON_PRETTY_PRINT));
     header('Location: dashboard.php');
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Create Post</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style_blog.css">
 </head>
 <body>
-<h1>Create a New Post</h1>
-<form method="POST">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
-    <label for="content">Content:</label>
-    <textarea id="content" name="content" required></textarea>
-    <button type="submit">Create Post</button>
-</form>
+<div class="container">
+    <h1>Create a New Post</h1>
+    <form method="POST">
+        <label>Title:</label>
+        <input type="text" name="title" required>
+
+        <label>Content:</label>
+        <textarea name="content" required></textarea>
+
+        <button type="submit">Create</button>
+    </form>
+</div>
 </body>
 </html>

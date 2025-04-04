@@ -1,17 +1,15 @@
-/Blog_Project
-    /includes
-        - header.php
-        - footer.php
-    /data
-        - users.json
-        - posts.json
-    /css
-        - style.css
-    index.php
-    login.php
-    register.php
-    dashboard.php
-    create_post.php
-    edit_post.php
-    view_post.php
-    logout.php
+the_blog_project/
+├── css/
+│   └── style.css
+├── data/
+│   ├── posts.json
+│   └── users.json
+├── includes/
+│   ├── header.php
+│   └── footer.php
+├── index.php
+├── register.php
+├── login.php
+├── dashboard.php
+├── create_post.php
+└── logout.php
