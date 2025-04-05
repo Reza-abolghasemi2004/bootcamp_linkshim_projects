@@ -22,16 +22,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="style_blog.css">
+
 </head>
 <body>
 <div class="container">
     <h1>Login</h1>
+
     <form method="POST">
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
+        <button type="submit" class="btn btn-login">Login</button>
     </form>
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+
+    <?php if (isset($error)): ?>
+        <p style="color:red; margin-top: 16px;"><?= $error ?></p>
+    <?php endif; ?>
+
+    <p style="margin-top: 20px;">Don't have an account?
+        <a href="register.php" style="color: #007bff; text-decoration: underline;">Sign up here</a>
+    </p>
 </div>
 </body>
 </html>

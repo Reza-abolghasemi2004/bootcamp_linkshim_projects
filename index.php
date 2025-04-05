@@ -8,7 +8,8 @@ session_start();
     <meta charset="UTF-8">
     <title>Welcome | My Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="index_one.css">
+    <link rel="stylesheet" href="style_blog.css">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 

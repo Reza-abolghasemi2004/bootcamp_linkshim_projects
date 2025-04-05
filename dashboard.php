@@ -15,21 +15,27 @@ $posts = json_decode(file_get_contents('data/posts.json'), true) ?? [];
 </head>
 <body>
 <div class="container">
-    <h1>Welcome, <?php echo $_SESSION['user']['username']; ?>!</h1>
-    <a href="create_post.php">+ Create New Post</a>
-    <a href="logout.php">Logout</a>
-    <hr><br>
+    <h1>Welcome, <?= $_SESSION['user']['username'] ?>!</h1>
 
+    <div>
+        <a href="create_post.php" class="btn btn-signup">+ Create New Post</a>
+        <a href="logout.php" class="btn btn-login">Logout</a>
+    </div>
+
+    <hr><br>
     <h2>Your Posts</h2>
+
     <?php if (empty($posts)): ?>
         <p>No posts yet. Start by creating one!</p>
     <?php else: ?>
-        <?php foreach ($posts as $post): ?>
-            <div class="post">
-                <h3><?= htmlspecialchars($post['title']) ?></h3>
-                <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
-                <small>by <?= $post['author'] ?> | <?= $post['created_at'] ?></small>
-            </div>
+        <?php foreach (array_reverse($posts) as $post): ?>
+            <?php if ($post['author'] === $_SESSION['user']['username']): ?>
+                <div class="post" style="text-align: left; margin-bottom: 24px; background: #fff; padding: 16px; border-radius: 12px;">
+                    <h3><?= htmlspecialchars($post['title']) ?></h3>
+                    <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+                    <small style="color: #555;">By <?= $post['author'] ?> | <?= $post['created_at'] ?></small>
+                </div>
+            <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>
 </div>

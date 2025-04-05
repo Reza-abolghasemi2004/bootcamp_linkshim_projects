@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Create Post</title>
     <link rel="stylesheet" href="style_blog.css">
+
 </head>
 <body>
 <div class="container">
