@@ -23,6 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Location: dashboard.php');
     exit();
 }
+
+// Get existing posts to display
+$posts = json_decode(file_get_contents('data/posts.json'), true) ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Create Post</title>
     <link rel="stylesheet" href="style_blog.css">
-
 </head>
 <body>
 <div class="container">
@@ -41,9 +43,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <label>Content:</label>
         <textarea name="content" required></textarea>
-
-        <button type="submit">Create</button>
+        <div class="flex">
+            <button type="button" onclick="window.location.href='dashboard.php'" style="margin-right: auto">Cancel</button>
+            <button type="submit" style="margin-left: auto">Create</button>
+        </div>
     </form>
+
+    <h2>Your Posts</h2>
+    <div class="posts-container">
+        <?php foreach ($posts as $post): ?>
+            <?php if ($post['author'] === $_SESSION['user']['username']): ?>
+                <div class="post">
+                    <h3><?= htmlspecialchars($post['title']) ?></h3>
+                    <p><?= htmlspecialchars($post['content']) ?></p>
+                    <small>Posted on <?= $post['created_at'] ?></small>
+                    <div class="post-actions">
+                        <a href="edit_post.php?id=<?= $post['id'] ?>" class="edit-btn">Edit</a>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
 </div>
 </body>
 </html>

@@ -57,13 +57,13 @@ textarea {
 
 textarea {
     resize: vertical;
+    min-height: 150px;
 }
 
 /* Buttons */
 button,
 .btn {
     display: inline-block;
-    margin: 10px auto;
     padding: 12px 28px;
     border-radius: 8px;
     font-weight: 600;
@@ -78,6 +78,7 @@ button,
 button[type="submit"] {
     background: #007bff;
     color: white;
+    margin: 10px 5px;
 }
 
 .btn-login:hover,
@@ -114,6 +115,60 @@ button[type="submit"]:hover {
     margin-bottom: 20px;
     text-align: left;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.post small {
+    display: block;
+    color: #666;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Post Actions */
+.post-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #bb2d3b;
+}
+
+/* Flex Utilities */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.flex-end {
+    justify-content: flex-end;
 }
 
 /* Header / Nav */
@@ -159,4 +214,25 @@ nav ul li a:hover {
     border-radius: 0 0 12px 12px;
     margin-top: 30px;
     font-size: 0.9rem;
+}
+
+/* Posts Container */
+.posts-container {
+    margin-top: 30px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    button, .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
 }

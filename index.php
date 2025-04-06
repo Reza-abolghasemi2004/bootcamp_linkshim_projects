@@ -17,7 +17,7 @@ session_start();
 <body>
 
 <div class="container">
-    <h1>Welcome to My Blog</h1>
+    <h1>Welcome to our blog<br>Reza and Parnia</h1>
     <p>Share your thoughts and discover others' stories.</p>
 
     <?php if (!isset($_SESSION['user'])): ?>
@@ -29,7 +29,7 @@ session_start();
     <?php endif; ?>
 
     <div class="footer">
-        &copy; <?= date('Y') ?> My Blog Project
+        &copy; <?= date('Y') ?> G2 Blog Project
     </div>
 </div>
 

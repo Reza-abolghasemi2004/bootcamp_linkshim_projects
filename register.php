@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h1>Create Account</h1>
 
     <form method="POST">
+        <input type="text" name="email" placeholder="Your Email" required>
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <button type="submit" class="btn btn-signup">Sign Up</button>
